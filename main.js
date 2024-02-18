@@ -12,7 +12,7 @@ const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 scene.add(cube);
 
 // Create our sphere
-const geometry = new THREE.SphereGeometry(3, 64, 64);
+const geometry = new THREE.SphereGeometry(1.5, 64, 64);
 const material = new THREE.MeshStandardMaterial({ color: 0x023e8a });
 const mesh = new THREE.Mesh(geometry, material);
 mesh.position.x = 6;
@@ -69,7 +69,15 @@ window.addEventListener("resize", () => {
   renderer.setSize(sizes.width, sizes.height);
 });
 
+let moveDirection = 1;
 const loop = () => {
+  if (mesh.position.y > 2) {
+    moveDirection = -1;
+  } else if (mesh.position.y < -2) {
+    moveDirection = 1;
+  }
+  mesh.position.y += 0.01 * moveDirection;
+
   controls.update();
   renderer.render(scene, camera);
   window.requestAnimationFrame(loop);
