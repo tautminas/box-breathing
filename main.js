@@ -7,13 +7,13 @@ const scene = new THREE.Scene();
 
 // Create square
 const cubeGeometry = new THREE.BoxGeometry(4, 4, 4);
-const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x023e8a });
+const cubeMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff83 });
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 scene.add(cube);
 
 // Create our sphere
 const geometry = new THREE.SphereGeometry(1.5, 64, 64);
-const material = new THREE.MeshStandardMaterial({ color: 0x023e8a });
+const material = new THREE.MeshStandardMaterial({ color: 0x00ff83 });
 const mesh = new THREE.Mesh(geometry, material);
 mesh.position.x = 6;
 scene.add(mesh);
@@ -45,7 +45,7 @@ const renderer = new THREE.WebGLRenderer({ canvas });
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(2);
 
-renderer.setClearColor(0xcaf0f8);
+// renderer.setClearColor(0xcaf0f8);
 
 renderer.render(scene, camera);
 
@@ -69,14 +69,48 @@ window.addEventListener("resize", () => {
   renderer.setSize(sizes.width, sizes.height);
 });
 
-let moveDirection = 1;
+// Animation variables
+let squareSide = 4; // Assuming the square has a side length of 4
+let direction = "right";
+let currentX = cube.position.x + squareSide;
+let currentY = cube.position.y;
+
 const loop = () => {
-  if (mesh.position.y > 2) {
-    moveDirection = -1;
-  } else if (mesh.position.y < -2) {
-    moveDirection = 1;
+  // Update sphere position based on direction
+  switch (direction) {
+    case "right":
+      currentX += 0.01;
+      if (currentX > cube.position.x + squareSide) {
+        direction = "down";
+        currentY -= 0.01;
+      }
+      break;
+    case "down":
+      currentY -= 0.01;
+      if (currentY < cube.position.y - squareSide) {
+        direction = "left";
+        currentX -= 0.01;
+      }
+      break;
+    case "left":
+      currentX -= 0.01;
+      if (currentX < cube.position.x - squareSide) {
+        direction = "up";
+        currentY += 0.01;
+      }
+      break;
+    case "up":
+      currentY += 0.01;
+      if (currentY > cube.position.y + squareSide) {
+        direction = "right";
+        currentX += 0.01;
+      }
+      break;
   }
-  mesh.position.y += 0.01 * moveDirection;
+
+  // Update sphere position
+  mesh.position.x = currentX;
+  mesh.position.y = currentY;
 
   controls.update();
   renderer.render(scene, camera);
