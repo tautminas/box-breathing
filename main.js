@@ -73,37 +73,37 @@ window.addEventListener("resize", () => {
 let squareSide = 4; // Assuming the square has a side length of 4
 let direction = "right";
 let currentX = cube.position.x + squareSide;
-let currentY = cube.position.y;
+let currentY = cube.position.y + squareSide;
 
 const loop = () => {
   // Update sphere position based on direction
   switch (direction) {
     case "right":
-      currentX += 0.01;
+      currentX += 0.03;
       if (currentX > cube.position.x + squareSide) {
         direction = "down";
-        currentY -= 0.01;
+        currentY -= 0.03;
       }
       break;
     case "down":
-      currentY -= 0.01;
+      currentY -= 0.03;
       if (currentY < cube.position.y - squareSide) {
         direction = "left";
-        currentX -= 0.01;
+        currentX -= 0.03;
       }
       break;
     case "left":
-      currentX -= 0.01;
+      currentX -= 0.03;
       if (currentX < cube.position.x - squareSide) {
         direction = "up";
-        currentY += 0.01;
+        currentY += 0.03;
       }
       break;
     case "up":
-      currentY += 0.01;
+      currentY += 0.03;
       if (currentY > cube.position.y + squareSide) {
         direction = "right";
-        currentX += 0.01;
+        currentX += 0.03;
       }
       break;
   }
