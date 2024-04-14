@@ -71,39 +71,53 @@ window.addEventListener("resize", () => {
 
 // Animation variables
 let squareSide = 4; // Assuming the square has a side length of 4
-let direction = "right";
+let direction = "down";
 let currentX = cube.position.x + squareSide;
 let currentY = cube.position.y + squareSide;
 
+const duration = 4000;
+let startTime = performance.now();
+
 const loop = () => {
+  const elapsed = performance.now() - startTime;
+  let ratio = elapsed / duration;
+
   // Update sphere position based on direction
   switch (direction) {
     case "right":
-      currentX += 0.03;
+      currentX = cube.position.x - squareSide + 2 * squareSide * ratio;
       if (currentX > cube.position.x + squareSide) {
         direction = "down";
         currentY -= 0.03;
+        ratio = 0;
+        startTime = performance.now();
       }
       break;
     case "down":
-      currentY -= 0.03;
+      currentY = cube.position.y + squareSide - 2 * squareSide * ratio;
       if (currentY < cube.position.y - squareSide) {
         direction = "left";
         currentX -= 0.03;
+        ratio = 0;
+        startTime = performance.now();
       }
       break;
     case "left":
-      currentX -= 0.03;
+      currentX = cube.position.x + squareSide - 2 * squareSide * ratio;
       if (currentX < cube.position.x - squareSide) {
         direction = "up";
         currentY += 0.03;
+        ratio = 0;
+        startTime = performance.now();
       }
       break;
     case "up":
-      currentY += 0.03;
+      currentY = cube.position.y - squareSide + 2 * squareSide * ratio;
       if (currentY > cube.position.y + squareSide) {
         direction = "right";
         currentX += 0.03;
+        ratio = 0;
+        startTime = performance.now();
       }
       break;
   }
