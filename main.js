@@ -88,7 +88,6 @@ const loop = () => {
       currentX = cube.position.x - squareSide + 2 * squareSide * ratio;
       if (currentX > cube.position.x + squareSide) {
         direction = "down";
-        currentY -= 0.03;
         ratio = 0;
         startTime = performance.now();
       }
@@ -97,7 +96,6 @@ const loop = () => {
       currentY = cube.position.y + squareSide - 2 * squareSide * ratio;
       if (currentY < cube.position.y - squareSide) {
         direction = "left";
-        currentX -= 0.03;
         ratio = 0;
         startTime = performance.now();
       }
@@ -106,7 +104,6 @@ const loop = () => {
       currentX = cube.position.x + squareSide - 2 * squareSide * ratio;
       if (currentX < cube.position.x - squareSide) {
         direction = "up";
-        currentY += 0.03;
         ratio = 0;
         startTime = performance.now();
       }
@@ -115,7 +112,6 @@ const loop = () => {
       currentY = cube.position.y - squareSide + 2 * squareSide * ratio;
       if (currentY > cube.position.y + squareSide) {
         direction = "right";
-        currentX += 0.03;
         ratio = 0;
         startTime = performance.now();
       }
