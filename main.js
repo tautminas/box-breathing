@@ -81,6 +81,7 @@ let startTime = performance.now();
 const loop = () => {
   const elapsed = performance.now() - startTime;
   let ratio = elapsed / duration;
+  let scaleForBreathing;
 
   // Update sphere position based on direction
   switch (direction) {
@@ -93,6 +94,8 @@ const loop = () => {
       }
       break;
     case "down":
+      scaleForBreathing = 1 - 0.5 * ratio;
+      mesh.scale.set(scaleForBreathing, scaleForBreathing, scaleForBreathing);
       currentY = cube.position.y + squareSide - 2 * squareSide * ratio;
       if (currentY < cube.position.y - squareSide) {
         direction = "left";
@@ -109,6 +112,8 @@ const loop = () => {
       }
       break;
     case "up":
+      scaleForBreathing = 0.5 + 0.5 * ratio;
+      mesh.scale.set(scaleForBreathing, scaleForBreathing, scaleForBreathing);
       currentY = cube.position.y - squareSide + 2 * squareSide * ratio;
       if (currentY > cube.position.y + squareSide) {
         direction = "right";
