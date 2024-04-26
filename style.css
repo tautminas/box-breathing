@@ -22,6 +22,36 @@ html {
   position: absolute;
   font-size: 3rem;
   left: 50%;
-  top: 10%;
-  transform: translate(-50%, -75%);
+  top: 3%;
+  transform: translate(-50%, 0%);
+}
+
+.lead {
+  color: white;
+  z-index: 2;
+  position: absolute;
+  font-size: 1rem;
+  left: 50%;
+  top: 14%;
+  transform: translate(-50%, 0%);
+}
+
+.footer {
+  color: white;
+  z-index: 2;
+  position: absolute;
+  font-size: 1rem;
+  left: 50%;
+  bottom: 5%;
+  transform: translate(-50%, 0%);
+}
+
+.command {
+  color: white;
+  z-index: 2;
+  position: absolute;
+  font-size: 1.5rem;
+  left: 50%;
+  bottom: 15%;
+  transform: translate(-50%, 0%);
 }

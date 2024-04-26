@@ -35,7 +35,7 @@ scene.add(ambientLight);
 
 // Camera
 const camera = new THREE.PerspectiveCamera(
-  45,
+  60,
   sizes.width / sizes.height,
   0.1,
   100
@@ -74,7 +74,7 @@ window.addEventListener("resize", () => {
 });
 
 // Animation variables
-let squareSide = 4; // Assuming the square has a side length of 4
+let squareSide = 4;
 let direction = "down";
 let currentX = cube.position.x + squareSide;
 let currentY = cube.position.y + squareSide;
@@ -90,6 +90,7 @@ const loop = () => {
   // Update sphere position based on direction
   switch (direction) {
     case "right":
+      document.querySelector(".command").textContent = "Hold";
       currentX = cube.position.x - squareSide + 2 * squareSide * ratio;
       if (currentX > cube.position.x + squareSide) {
         direction = "down";
@@ -98,6 +99,7 @@ const loop = () => {
       }
       break;
     case "down":
+      document.querySelector(".command").textContent = "Exhale";
       scaleForBreathing = 1 - 0.5 * ratio;
       mesh.scale.set(scaleForBreathing, scaleForBreathing, scaleForBreathing);
       currentY = cube.position.y + squareSide - 2 * squareSide * ratio;
@@ -108,6 +110,7 @@ const loop = () => {
       }
       break;
     case "left":
+      document.querySelector(".command").textContent = "Hold";
       currentX = cube.position.x + squareSide - 2 * squareSide * ratio;
       if (currentX < cube.position.x - squareSide) {
         direction = "up";
@@ -116,6 +119,7 @@ const loop = () => {
       }
       break;
     case "up":
+      document.querySelector(".command").textContent = "Inhale";
       scaleForBreathing = 0.5 + 0.5 * ratio;
       mesh.scale.set(scaleForBreathing, scaleForBreathing, scaleForBreathing);
       currentY = cube.position.y - squareSide + 2 * squareSide * ratio;
