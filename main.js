@@ -7,13 +7,13 @@ const scene = new THREE.Scene();
 
 // Create square
 const cubeGeometry = new THREE.BoxGeometry(4, 4, 4);
-const cubeMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff83 });
+const cubeMaterial = new THREE.MeshStandardMaterial({ color: 0x5cb8e4 });
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 scene.add(cube);
 
 // Create our sphere
 const geometry = new THREE.SphereGeometry(1.5, 64, 64);
-const material = new THREE.MeshStandardMaterial({ color: 0x00ff83 });
+const material = new THREE.MeshStandardMaterial({ color: 0x5cb8e4 });
 const mesh = new THREE.Mesh(geometry, material);
 mesh.position.x = 6;
 scene.add(mesh);
@@ -30,7 +30,7 @@ light.position.set(0, 10, 10);
 scene.add(light);
 
 // Ambient light (subtle overall illumination)
-const ambientLight = new THREE.AmbientLight(0x404040, 0.8); // Color and intensity
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.8); // Color and intensity
 scene.add(ambientLight);
 
 // Camera
@@ -49,7 +49,7 @@ const renderer = new THREE.WebGLRenderer({ canvas });
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(2);
 
-// renderer.setClearColor(0xcaf0f8);
+renderer.setClearColor(0xf2f2f2);
 
 renderer.render(scene, camera);
 

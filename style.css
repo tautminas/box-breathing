@@ -17,7 +17,7 @@ html {
 }
 
 .absolute-center {
-  color: white;
+  color: #181818;
   z-index: 2;
   position: absolute;
   left: 50%;
@@ -52,6 +52,7 @@ html {
 .command {
   font-size: 1.5rem;
   bottom: 15%;
+  color: #8758FF;
 }
 
 /* Media Queries for smaller screens */
@@ -82,4 +83,14 @@ html {
     font-size: 0.5rem;
     top: 95%;
   }
+}
+
+a {
+  color: #8758FF; /* Default color */
+  text-decoration: none; Remove underline
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+a:hover {
+  color: #5CB8E4; /* Color on hover */
 }
