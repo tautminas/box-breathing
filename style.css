@@ -35,7 +35,8 @@ html {
   text-align: center;
 }
 
-.lead p {
+.lead p,
+.footer p {
   display: inline-block;
   text-align: left;
   padding-left: 50%;
@@ -45,9 +46,40 @@ html {
 .footer {
   font-size: 1rem;
   bottom: 5%;
+  text-align: center;
 }
 
 .command {
   font-size: 1.5rem;
   bottom: 15%;
+}
+
+/* Media Queries for smaller screens */
+@media screen and (max-width: 760px) {
+  .absolute-center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, 0%);
+  }
+
+  .title {
+    font-size: 1.5rem;
+    top: 5%;
+  }
+
+  .lead {
+    font-size: 0.8rem;
+    top: 14%;
+    width: 90%;
+  }
+
+  .command {
+    font-size: 1.2rem;
+    top: 80%;
+  }
+
+  .footer {
+    font-size: 0.5rem;
+    top: 95%;
+  }
 }
