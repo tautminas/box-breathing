@@ -16,42 +16,38 @@ html {
   z-index: 1;
 }
 
-.title {
+.absolute-center {
   color: white;
   z-index: 2;
   position: absolute;
-  font-size: 3rem;
   left: 50%;
-  top: 3%;
   transform: translate(-50%, 0%);
+}
+
+.title {
+  font-size: 3rem;
+  top: 3%;
 }
 
 .lead {
-  color: white;
-  z-index: 2;
-  position: absolute;
   font-size: 1rem;
-  left: 50%;
   top: 14%;
-  transform: translate(-50%, 0%);
+  text-align: center;
+}
+
+.lead p {
+  display: inline-block;
+  text-align: left;
+  padding-left: 50%;
+  margin: 0;
 }
 
 .footer {
-  color: white;
-  z-index: 2;
-  position: absolute;
   font-size: 1rem;
-  left: 50%;
   bottom: 5%;
-  transform: translate(-50%, 0%);
 }
 
 .command {
-  color: white;
-  z-index: 2;
-  position: absolute;
   font-size: 1.5rem;
-  left: 50%;
   bottom: 15%;
-  transform: translate(-50%, 0%);
 }
