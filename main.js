@@ -30,7 +30,7 @@ light.position.set(0, 10, 10);
 scene.add(light);
 
 // Ambient light (subtle overall illumination)
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.8); // Color and intensity
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.4); // Color and intensity
 scene.add(ambientLight);
 
 // Camera
